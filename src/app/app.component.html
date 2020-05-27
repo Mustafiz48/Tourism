@@ -1,0 +1,101 @@
+<!-- Search -->
+
+<div class="search" style="width: 80%;">
+<h2>Search by tourist place name</h2>
+<table style="margin-bottom: 30px;">
+<tr>
+<td>
+<input type="text" #bang=ngModel [(ngModel)]="searchname" (blur)="search()" style="width: 100%;">
+<small *ngIf="!fnd && bang.touched" class="danger "><div class="alert alert-warning" role="alert">
+    **Plaace not found! Please search again</div></small>
+</td>
+<td>
+<div *ngIf="fnd && bang.touched" >
+
+    <table id="customers">
+          <thead>
+            <tr style="text-align: center;">
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Picture</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{searchfound.name}}</td>
+              <td>{{searchfound.address}}</td>
+              <td>{{searchfound.rating}}</td>
+              <td><img src={{searchfound.pic}} style="width: 120px;height: 85px;"></td>
+              <td><button (click)="Updateit(searchfound.id)">Update</button> <button (click)="Delete(searchfound.id)">Delete</button></td>
+            </tr>
+    
+    
+          </tbody>
+    </table>
+    
+</div>
+</td>
+</tr>
+</table>
+</div>
+<!-- search end here -->
+
+
+<!-- show -->
+<div class = "show"> 
+<table id="customers">
+      <thead>
+        <tr style="text-align: center;">
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Picture</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of PlaceList">
+        <tr>
+          <td>{{user.name}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.rating}}</td>
+          <td><img src={{user.pic}} style="width: 120px; height: 95px;" ></td>
+          <td><button (click)="Updateit(user.id)">Update</button> <button (click)="Delete(user.id)">Delete</button></td>
+        </tr>
+
+
+      </tbody>
+
+
+<!-- <div *ngFor="let user of PlaceList">
+   <p> {{user.name}}  {{user.address}} {{user.rating}}</p>
+    <img src={{user.pic}} >
+    <td scope="col">  <button (click)="Updateit(user.id)">Update</button> <button (click)="Delete(user.id)">Delete</button>
+
+</div> -->
+
+</table>
+
+</div>
+
+
+<!-- showing ends here -->
+
+<!-- <div *ngIf="PlaceList.length!=0" > -->
+
+<div class="inputform" *ngIf="addflag">
+  <app-addplace (data)="recieved($event)"></app-addplace>
+</div>
+
+
+<div class="inputform" *ngIf="updateflag">
+  <app-updateplace [updateusr]="updateuser" (update)="Update($event)"></app-updateplace>
+</div>
+
+<div class="sort">
+  <p>Sort Based on Rating</p>
+  <button (click)="srtasc()">Asc</button>
+  <button (click)="srtdsc()">Dsc</button>
+</div>
+<router-outlet></router-outlet>

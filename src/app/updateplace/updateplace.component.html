@@ -1,0 +1,108 @@
+<!-- <p>updateplace works!</p>
+<p>addplace works!</p> -->
+
+<!-- <button (click)="doit()">Hey</button> -->
+
+<!-- {{usr.name}} -->
+
+<div *ngIf="updateusr">
+<div class="container">
+    <h3>Update Place</h3>
+
+  <form #userform="ngForm" (ngSubmit)=UpdateUser(userform.value)>
+    <!-- <div class="form-group" >
+      <label >Enter Name:</label>
+      <input type="text" style="margin-left: 22px;"
+      required  name="name" [ngModel]="updateusr.name"  >
+    </div> -->
+  
+    <div  class="row">
+      <div class="col-25">
+        <label for="fname">Place's Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" #named="ngModel"  required name="name" [ngModel]="updateusr.name" placeholder="Place's name..">
+      </div>
+      <small><div *ngIf="named.invalid && named.touched" 
+        style="margin-left: 5px;color: red;">Error!Please Enter a Name!</div></small>
+  
+    </div>
+
+  
+    <!-- <div class="form-group" >
+      <label >Address:</label>
+      <input type="text" style="margin-left: 45px;"
+      required   name="address" [ngModel]="updateusr.address">
+  
+    </div> -->
+
+    <div  class="row">
+      <div class="col-25">
+        <label for="fname">Address</label>
+      </div>
+      <div class="col-75">
+        <input type="text" #addrs="ngModel" required name="address" [ngModel]="updateusr.address" placeholder="Place's Address..">
+      </div>
+      <small><div *ngIf="addrs.invalid && addrs.touched" 
+        style="margin-left: 5px;color: red;">Error!Please Enter Place's Address!</div></small>
+  
+    </div>
+
+
+
+<!--   
+    <div class="form-group">
+      <label >Rating(0-10):</label>
+      <input type="text" style="margin-left: 15px;"
+      required name="rating" [ngModel]="updateusr.rating">    
+    </div> -->
+
+    <div  class="row">
+      <div class="col-25">
+        <label for="fname">Rating</label>
+      </div>
+      <div class="col-75">
+        <input type="text" #rate="ngModel" required 
+        name="rating" [ngModel]="updateusr.rating" (blur)="hell(rate.value)" placeholder="Place's Rating.." >
+      </div>
+      <small><div *ngIf="rate.invalid && rate.touched" 
+        style="margin-left: 5px;color: red;">Error!Please give a Rating!</div></small>
+        <small><div *ngIf="rate.valid && rate.touched && !flag" 
+          style="margin-left: 5px;color: red;">Rating must be between 0 and 10!</div></small>
+    
+    </div>
+  
+    <!-- <div class="form-group">
+      <label >Picture:</label>
+       <input type="file" style="margin-left: 47px;" name="pict" ngModel  (change)=picselect($event)>
+     </div> -->
+
+
+     <div class="row">
+      <div class="col-25">
+        <label for="lname">Picture</label>
+      </div>
+      <div class="col-75">
+        <input type="file"  name="pict" ngModel (change)=picselect($event)>
+      </div>
+    </div>
+  
+     <!-- <div class="col-auto my-1" style="margin-left: 100px;">
+      <button type="submit"   >Submit</button>
+      <button (click)="cancelAdd()">Cancell</button>
+    </div> -->
+
+    <div class="row">
+      <input type="submit" value="Submit" [disabled]="userform.form.invalid">
+      <button (click)="cancelAdd()" 
+      style=
+      "width: 45%;
+      height: 30px;
+      float:left;
+      margin-top: 8px;
+      ">Cancell</button>
+    </div>
+
+  </form>
+  </div>
+</div>

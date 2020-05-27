@@ -1,0 +1,66 @@
+<div class="container">
+    <h3>Add new Place</h3>
+
+  <form #userform="ngForm" (ngSubmit)=Adduser(userform.value) >
+
+
+    <div  class="row">
+      <div class="col-25">
+        <label for="fname">Place's Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" #named="ngModel" required name="name" ngModel placeholder="Place's name..">
+      </div>
+      <small><div *ngIf="named.invalid && named.touched" 
+      style="margin-left: 5px;color: red;">Error!Please Enter a Name!</div></small>
+
+    </div>
+
+    <div  class="row">
+      <div class="col-25">
+        <label for="fname">Address</label>
+      </div>
+      <div class="col-75">
+        <input type="text" #addrs="ngModel" required name="address" ngModel placeholder="Place's Address..">
+      </div>
+      <small><div *ngIf="addrs.invalid && addrs.touched" 
+        style="margin-left: 5px;color: red;">Error!Please Enter Place's Address!</div></small>
+  
+    </div>
+  
+
+  
+    <div  class="row">
+      <div class="col-25">
+        <label for="fname">Rating</label>
+      </div>
+      <div class="col-75">
+        <input type="text" #rate="ngModel" required name="rating" 
+        ngModel placeholder="Place's Rating.." (blur)="hell(rate.value)">
+      </div>
+      <small><div *ngIf="rate.invalid && rate.touched" 
+        style="margin-left: 5px;color: red;">Error!Please give a Rating!</div></small>
+        
+        <small><div *ngIf="rate.valid && rate.touched && !flag" 
+          style="margin-left: 5px;color: red;">Rating must be between 0 and 10!</div></small>
+    
+    </div>
+
+
+
+     <div class="row">
+      <div class="col-25">
+        <label for="lname">Picture</label>
+      </div>
+      <div class="col-75">
+        <input type="file"  name="pic" (change)=picselect($event)>
+      </div> 
+  </div>
+  
+    <div class="row">
+      <input type="submit" [disabled]="userform.form.invalid" value="Submit">
+    </div>
+
+
+  </form>
+  </div>

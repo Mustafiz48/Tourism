@@ -1,0 +1,133 @@
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    /* width: 45%; */
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid rgb(8, 153, 33);
+    padding: 20px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  #customers td button
+  {
+      width: 100px;;
+      margin: 4px;
+
+}
+
+
+
+
+
+  /* forms Styles Goes Here*/
+
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  input[type=file], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+     width: 45%;
+     height: 30px;
+    /*background-color: rgb(127, 129, 127);
+    /* color: white; */
+    /* padding: 14px 20px;
+    margin: 8px 0; */
+    /* border: none; */
+    /* border-radius: 4px;
+    cursor: pointer;*/
+    /* margin:8px 0px 0px 150px; */
+    float: right;
+    margin-top: 8px;
+
+  }
+  
+  /* input[type=submit]:hover {
+    background-color: #45a049;
+  } */
+  
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 0px;
+    border: 1px solid rgb(8, 153, 33);
+
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.show{
+    float: left;
+    width: 47%;
+}
+
+.inputform{
+    float: left;
+    width: 30%;
+    margin-left: 65px;;
+    /* margin-right: 5px;; */
+}
+
+.sort{
+    float: right;
+    width: 16%;
+    /* margin-left: 5px; */
+    margin-right: 10px;
+    background-color:#f2f2f2;
+    border: 1px solid rgb(8, 153, 33);
+    padding: 28px 35px 28px 50px;
+}
+
